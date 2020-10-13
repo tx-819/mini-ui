@@ -52,7 +52,7 @@ export default {
   align-items: center;
   vertical-align: middle;
   &:hover {
-    border-color: var(--border-color);
+    border-color: var(--border-color-hover);
   }
   &:active {
     background-color: var(--button-active-bg);
