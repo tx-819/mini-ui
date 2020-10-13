@@ -1,7 +1,11 @@
 <template>
-  <button class="m-button" :class="{ [`icon-${iconPosition}`]: true }">
-    <m-icon v-if="icon" class="icon" :name="icon"></m-icon>
-    <m-icon class="loading" name="loading"></m-icon>
+  <button
+    class="m-button"
+    :class="{ [`icon-${iconPosition}`]: true }"
+    @click="$emit('click')"
+  >
+    <m-icon v-if="icon && !loading" class="icon" :name="icon"></m-icon>
+    <m-icon class="loading icon" v-if="loading" name="loading"></m-icon>
     <div class="content">
       <slot />
     </div>
@@ -11,6 +15,10 @@
 <script>
 export default {
   props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
     icon: {},
     iconPosition: {
       type: String,
@@ -69,7 +77,7 @@ export default {
       order: 1;
     }
   }
-  >.loading{
+  > .loading {
     animation: spin 2s infinite linear;
   }
 }
