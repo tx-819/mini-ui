@@ -15,6 +15,7 @@
 <script>
 import Icon from "./icon.vue";
 export default {
+  name: 'MiniButton',
   components: {
     "m-icon": Icon,
   },

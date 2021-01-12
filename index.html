@@ -27,32 +27,47 @@
         font-size: var(--font-size);
       }
     </style>
+    <style>
+      .box {
+        margin: 20px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <m-button :loading="loading1" @click="loading1 = !loading1">
-        按钮
-      </m-button>
-      <m-button
-        icon="setting"
-        :loading="loading2"
-        @click="loading2 = !loading2"
-      >
-        按钮
-      </m-button>
-      <m-button
-        icon="setting"
-        icon-position="right"
-        :loading="loading3"
-        @click="loading3 = !loading3"
-      >
-        按钮
-      </m-button>
-      <m-button-group>
-        <m-button icon="left">上一页</m-button>
-        <m-button>更多</m-button>
-        <m-button icon="right" icon-position="right">下一页</m-button>
-      </m-button-group>
+      <div class="box">
+        <m-input value="张三" disabled></m-input>
+        <m-input value="李四" readonly></m-input>
+        <m-input value="王五"></m-input>
+      </div>
+      <div class="box">
+        <m-input value="王" error="姓名不能少于两个字"></m-input>
+      </div>
+      <div class="box">
+        <m-button :loading="loading1" @click="loading1 = !loading1">
+          按钮
+        </m-button>
+        <m-button
+          icon="setting"
+          :loading="loading2"
+          @click="loading2 = !loading2"
+        >
+          按钮
+        </m-button>
+        <m-button
+          icon="setting"
+          icon-position="right"
+          :loading="loading3"
+          @click="loading3 = !loading3"
+        >
+          按钮
+        </m-button>
+        <m-button-group>
+          <m-button icon="left">上一页</m-button>
+          <m-button>更多</m-button>
+          <m-button icon="right" icon-position="right">下一页</m-button>
+        </m-button-group>
+      </div>
     </div>
     <script src="./src/app.js"></script>
     <script src="//at.alicdn.com/t/font_2125267_i39mg7cmt1.js"></script>
