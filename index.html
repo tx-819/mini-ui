@@ -1,75 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>mini-ui</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html {
-        --button-height: 32px;
-        --font-size: 14px;
-        --button-bg: white;
-        --button-active-bg: #eee;
-        --border-radius: 4px;
-        --color: #333;
-        --border-color: #999;
-        --border-color-hover: #666;
-      }
-      #app {
-        margin: 20px;
-      }
-      body {
-        font-size: var(--font-size);
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #999;
+            --border-color-hover: #666;
+        }
+
+        #app {
+            margin: 20px;
+        }
+
+        body {
+            font-size: var(--font-size);
+        }
     </style>
     <style>
-      .box {
-        margin: 20px;
-      }
+        .box {
+            margin: 20px;
+        }
     </style>
-  </head>
-  <body>
-    <div id="app">
-      <div class="box">
+</head>
+<body>
+<div id="app">
+    <m-row>
+        <m-col span="2">1</m-col>
+        <m-col span="22">2</m-col>
+    </m-row>
+    <div class="box">
         <m-input value="张三" disabled></m-input>
         <m-input value="李四" readonly></m-input>
         <m-input v-model="message"></m-input>
-      </div>
-      <div class="box">
+    </div>
+    <div class="box">
         <m-input value="王" error="姓名不能少于两个字"></m-input>
-      </div>
-      <div class="box">
+    </div>
+    <div class="box">
         <m-button :loading="loading1" @click="loading1 = !loading1">
-          按钮
+            按钮
         </m-button>
         <m-button
-          icon="setting"
-          :loading="loading2"
-          @click="loading2 = !loading2"
+                icon="setting"
+                :loading="loading2"
+                @click="loading2 = !loading2"
         >
-          按钮
+            按钮
         </m-button>
         <m-button
-          icon="setting"
-          icon-position="right"
-          :loading="loading3"
-          @click="loading3 = !loading3"
+                icon="setting"
+                icon-position="right"
+                :loading="loading3"
+                @click="loading3 = !loading3"
         >
-          按钮
+            按钮
         </m-button>
         <m-button-group>
-          <m-button icon="left">上一页</m-button>
-          <m-button>更多</m-button>
-          <m-button icon="right" icon-position="right">下一页</m-button>
+            <m-button icon="left">上一页</m-button>
+            <m-button>更多</m-button>
+            <m-button icon="right" icon-position="right">下一页</m-button>
         </m-button-group>
-      </div>
     </div>
-    <script src="./src/app.js"></script>
-    <script src="//at.alicdn.com/t/font_2125267_i39mg7cmt1.js"></script>
-  </body>
+</div>
+<script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_2125267_i39mg7cmt1.js"></script>
+</body>
 </html>
