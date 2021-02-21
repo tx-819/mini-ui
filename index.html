@@ -38,10 +38,16 @@
 </head>
 <body>
 <div id="app">
-    <m-row>
-        <m-col span="2">1</m-col>
-        <m-col span="22">2</m-col>
-    </m-row>
+    <div style="border: 1px solid red">
+        <m-row gutter="20">
+            <m-col span="2">1</m-col>
+            <m-col span="22">2</m-col>
+        </m-row>
+        <m-row gutter="20">
+            <m-col span="2">1</m-col>
+            <m-col span="18" offset="4">2</m-col>
+        </m-row>
+    </div>
     <div class="box">
         <m-input value="张三" disabled></m-input>
         <m-input value="李四" readonly></m-input>
