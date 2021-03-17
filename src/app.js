@@ -26,7 +26,7 @@ new Vue({
         message: "hi",
     },
     created() {
-        this.$toast('很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长', {
+        this.$toast('很长很长很长很长很长', {
             closeButton: {
                 text: '知道了',
                 callback(toast) {
@@ -34,7 +34,9 @@ new Vue({
                     console.log('用户说他知道了')
                 }
             },
-            enableHtml: true
+            enableHtml: true,
+            autoClose: false,
+            position: 'top'
         })
     },
     methods: {
