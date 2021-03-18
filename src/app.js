@@ -26,21 +26,22 @@ new Vue({
         message: "hi",
     },
     created() {
-        this.$toast('很长很长很长很长很长', {
-            closeButton: {
-                text: '知道了',
-                callback(toast) {
-                    console.log(toast)
-                    console.log('用户说他知道了')
-                }
-            },
-            enableHtml: true,
-            autoClose: false,
-            position: 'top'
-        })
+
     },
     methods: {
         click() {
+            this.$toast('很长很长很长很长很长', {
+                closeButton: {
+                    text: '知道了',
+                    callback(toast) {
+                        console.log(toast)
+                        console.log('用户说他知道了')
+                    }
+                },
+                enableHtml: true,
+                autoClose: false,
+                position: 'top'
+            })
         }
     }
 });
