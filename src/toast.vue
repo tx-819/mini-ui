@@ -48,9 +48,9 @@ export default {
     this.updateStyles()
   },
   computed: {
-    toastClasses () {
+    toastClasses() {
       return {
-        [`position-${this.position}`] : true
+        [`position-${this.position}`]: true
       }
     }
   },
@@ -86,7 +86,19 @@ export default {
 $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(100%)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%)
+  }
+}
+
 .toast {
+  animation: fade-in 1s;
   font-size: $font-size;
   min-height: $toast-min-height;
   line-height: 1.8;
@@ -100,9 +112,10 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   padding: 0 16px;
   border-radius: 4px;
 
-  .message{
+  .message {
     padding: 8px 0;
   }
+
   .close {
     padding-left: 16px;
     flex-shrink: 0;
@@ -113,15 +126,18 @@ $toast-bg: rgba(0, 0, 0, 0.75);
     border-left: 1px solid #666;
     margin-left: 16px;
   }
-  &.position-top{
+
+  &.position-top {
     top: 0;
     transform: translateX(-50%);
   }
-  &.position-bottom{
+
+  &.position-bottom {
     bottom: 0;
     transform: translateX(-50%);
   }
-  &.position-middle{
+
+  &.position-middle {
     top: 50%;
     transform: translate(-50%, -50%);
   }
