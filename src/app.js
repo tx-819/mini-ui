@@ -29,7 +29,16 @@ new Vue({
 
     },
     methods: {
-        click() {
+        click1() {
+            this.click('top')
+        },
+        click2() {
+            this.click('middle')
+        },
+        click3() {
+            this.click('bottom')
+        },
+        click(position) {
             this.$toast('很长很长很长很长很长', {
                 closeButton: {
                     text: '知道了',
@@ -39,8 +48,8 @@ new Vue({
                     }
                 },
                 enableHtml: true,
-                autoClose: false,
-                position: 'top'
+                autoClose: true,
+                position
             })
         }
     }
