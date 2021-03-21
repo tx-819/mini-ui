@@ -7,6 +7,11 @@ import Row from './row.vue';
 import Col from './col.vue';
 import plugin from "./plugin";
 import Toast from "./toast";
+import Tabs from './tabs'
+import TabsHead from './tabs-head'
+import TabsItem from './tabs-item'
+import TabsBody from './tabs-body'
+import TabsPane from './tabs-pane'
 
 Vue.component("m-button", Button);
 Vue.component("m-icon", Icon);
@@ -15,15 +20,17 @@ Vue.component("m-input", Input);
 Vue.component("m-row", Row);
 Vue.component("m-col", Col);
 Vue.component('m-toast', Toast)
+Vue.component('m-tabs', Tabs)
+Vue.component('m-tabs-head', TabsHead)
+Vue.component('m-tabs-item', TabsItem)
+Vue.component('m-tabs-body', TabsBody)
+Vue.component('m-tabs-pane', TabsPane)
 Vue.use(plugin)
 
 new Vue({
     el: "#app",
     data: {
-        loading1: false,
-        loading2: true,
-        loading3: false,
-        message: "hi",
+        selectedTab: 'women'
     },
     created() {
 

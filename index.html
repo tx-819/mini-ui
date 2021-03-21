@@ -33,9 +33,24 @@
 </head>
 <body>
 <div id="app">
-    <button @click="click1">点我</button>
-    <button @click="click2">点我1</button>
-    <button @click="click3">点我2</button>
+    <m-tabs :selected.sync="selectedTab">
+        <m-tabs-head>
+            <template slot="actions">
+                <button>设置</button>
+            </template>
+            <m-tabs-item name="women">
+                <m-icon name="loading"></m-icon>
+                美女
+            </m-tabs-item>
+            <m-tabs-item name="finance" disabled>财经</m-tabs-item>
+            <m-tabs-item name="sports">体育</m-tabs-item>
+        </m-tabs-head>
+        <m-tabs-body>
+            <m-tabs-pane name="women">美女资讯</m-tabs-pane>
+            <m-tabs-pane name="finance">财经资讯</m-tabs-pane>
+            <m-tabs-pane name="sports">体育资讯</m-tabs-pane>
+        </m-tabs-body>
+    </m-tabs>
 </div>
 <script src="./src/app.js"></script>
 <script src="//at.alicdn.com/t/font_2125267_i39mg7cmt1.js"></script>
