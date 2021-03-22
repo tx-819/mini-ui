@@ -12,10 +12,12 @@
 export default {
   name: 'MiniTabsHead',
   inject: ['eventBus'],
-  created() {
+  mounted() {
     this.eventBus.$on('update:selected', (item, vm) => {
-      console.log(item)
-      console.log(vm)
+      let {width, left} = vm.$el.getBoundingClientRect()
+      console.log(width, left)
+      this.$refs.line.style.width = `${width}px`
+      this.$refs.line.style.left = `${left}px`
     })
   }
 }
@@ -24,21 +26,27 @@ export default {
 <style lang="scss" scoped>
 $tab-height: 40px;
 $blue: blue;
+$border-color: #ddd;
 .tabs-head {
   display: flex;
   height: $tab-height;
   justify-content: flex-start;
   position: relative;
+  border-bottom: 1px solid $border-color;
 
   > .line {
     position: absolute;
     bottom: 0;
     border-bottom: 1px solid $blue;
-    width: 100px;
+    transition: all 350ms;
   }
 
   .actives-wrapper {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1em;
   }
 }
 </style>
