@@ -19,7 +19,6 @@ $tab-height: 40px;
   display: flex;
   height: $tab-height;
   justify-content: flex-start;
-  align-items: center;
 
   .actives-wrapper {
     margin-left: auto;
