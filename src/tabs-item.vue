@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-item" @click="select" :class="classes">
+  <div class="tabs-item" @click="select" :class="classes" :data-name="name">
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,7 @@ export default {
   name: 'MiniTabsItem',
   inject: ['eventBus'],
   data() {
-    return{
+    return {
       active: false
     }
   },
@@ -25,21 +25,26 @@ export default {
   },
   computed: {
     classes() {
-      return{
+      return {
         active: this.active,
         disabled: this.disabled
       }
     }
   },
   mounted() {
-    this.eventBus.$on('update:selected', (name) => {
-      this.active = name === this.name;
-    })
+    if (this.eventBus) {
+      this.eventBus.$on('update:selected', (name) => {
+        this.active = name === this.name;
+      })
+    }
   },
   methods: {
     select() {
-      if (this.disabled) {return}
-      this.eventBus.$emit('update:selected', this.name, this)
+      if (this.disabled) {
+        return
+      }
+      this.eventBus && this.eventBus.$emit('update:selected', this.name, this)
+      this.$emit('click', this)
     }
   }
 }
@@ -54,11 +59,13 @@ $disabled-text-color: grey;
   cursor: pointer;
   display: flex;
   align-items: center;
-  &.active{
+
+  &.active {
     color: $blue;
     font-weight: bold;
   }
-  &.disabled{
+
+  &.disabled {
     color: $disabled-text-color;
   }
 }
