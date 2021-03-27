@@ -12,6 +12,7 @@ import TabsHead from './tabs-head'
 import TabsItem from './tabs-item'
 import TabsBody from './tabs-body'
 import TabsPane from './tabs-pane'
+import Popover from './popover'
 
 Vue.component("m-button", Button);
 Vue.component("m-icon", Icon);
@@ -25,6 +26,7 @@ Vue.component('m-tabs-head', TabsHead)
 Vue.component('m-tabs-item', TabsItem)
 Vue.component('m-tabs-body', TabsBody)
 Vue.component('m-tabs-pane', TabsPane)
+Vue.component('m-popover', Popover)
 Vue.use(plugin)
 
 new Vue({
@@ -36,28 +38,5 @@ new Vue({
 
     },
     methods: {
-        click1() {
-            this.click('top')
-        },
-        click2() {
-            this.click('middle')
-        },
-        click3() {
-            this.click('bottom')
-        },
-        click(position) {
-            this.$toast('很长很长很长很长很长', {
-                closeButton: {
-                    text: '知道了',
-                    callback(toast) {
-                        console.log(toast)
-                        console.log('用户说他知道了')
-                    }
-                },
-                enableHtml: true,
-                autoClose: true,
-                position
-            })
-        }
     }
 });

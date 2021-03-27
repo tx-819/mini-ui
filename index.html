@@ -23,6 +23,7 @@
         }
 
         #app {
+            padding: 100px;
         }
 
         body {
@@ -32,24 +33,22 @@
 </head>
 <body>
 <div id="app">
-    <m-tabs :selected.sync="selectedTab">
-        <m-tabs-head>
-            <template slot="actions">
-                <button>设置</button>
-            </template>
-            <m-tabs-item name="women" disabled>
-                <m-icon name="loading"></m-icon>
-                美女
-            </m-tabs-item>
-            <m-tabs-item name="finance">财经</m-tabs-item>
-            <m-tabs-item name="sports">体育</m-tabs-item>
-        </m-tabs-head>
-        <m-tabs-body>
-            <m-tabs-pane name="women">美女资讯</m-tabs-pane>
-            <m-tabs-pane name="finance">财经资讯</m-tabs-pane>
-            <m-tabs-pane name="sports">体育资讯</m-tabs-pane>
-        </m-tabs-body>
-    </m-tabs>
+    <m-popover>
+        <template slot="content">
+            <div>
+                显示内容
+            </div>
+        </template>
+        <button>点击</button>
+    </m-popover>
+    <m-popover>
+        <template slot="content">
+            <div>
+                显示内容
+            </div>
+        </template>
+        <button>点击</button>
+    </m-popover>
 </div>
 <script src="./src/app.js"></script>
 <script src="//at.alicdn.com/t/font_2125267_i39mg7cmt1.js"></script>
