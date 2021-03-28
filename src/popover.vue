@@ -30,22 +30,28 @@ export default {
     positionContent() {
       const {contentWrapper, triggerWrapper} = this.$refs
       document.body.appendChild(contentWrapper)
+      const {height: height1} = contentWrapper.getBoundingClientRect()
       const {top, left, height, width} = triggerWrapper.getBoundingClientRect()
-      if (this.position === 'top') {
-        contentWrapper.style.top = top + window.scrollY + 'px'
-        contentWrapper.style.left = left + window.scrollX + 'px'
-      } else if (this.position === 'bottom') {
-        contentWrapper.style.top = top + height + window.scrollY + 'px'
-        contentWrapper.style.left = left + window.scrollX + 'px'
-      } else if (this.position === 'left') {
-        const {height: height1} = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.top = top + (height - height1)/2 +  window.scrollY + 'px'
-        contentWrapper.style.left = left + window.scrollX + 'px'
-      } else if (this.position === 'right') {
-        const {height: height1} = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.top = top + (height - height1)/2 +  window.scrollY + 'px'
-        contentWrapper.style.left = left + width + window.scrollX + 'px'
+      const position = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + (height - height1) / 2 + window.scrollY,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + (height - height1) / 2 + window.scrollY,
+          left: left + width + window.scrollX
+        }
       }
+      contentWrapper.style.top = position[this.position].top + 'px'
+      contentWrapper.style.left = position[this.position].left + 'px'
     },
     onClickDocument(e) {
       if (this.$refs.popover &&
@@ -165,6 +171,7 @@ $border-radius: 4px;
       left: calc(100% - 1px);
     }
   }
+
   &.position-right {
     margin-left: 10px;
 
