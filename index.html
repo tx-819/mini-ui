@@ -34,9 +34,10 @@
 <body>
 <div id="app">
     <m-popover>
-        <template slot="content">
+        <template slot="content" slot-scope="{close}">
             <div>
                 显示内容
+                <m-button @click="close">关闭</m-button>
             </div>
         </template>
         <m-button>点击</m-button>
